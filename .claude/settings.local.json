@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(if [ ! -d \"C:/Users/Johan/OneDrive/Documentos/Claude/Projects/busqueda de clientes en el salvador/demoweb/.claude\" ]; then mkdir -p \"C:/Users/Johan/OneDrive/Documentos/Claude/Projects/busqueda de clientes en el salvador/demoweb/.claude\"; fi)",
-      "mcp__Claude_Preview__preview_start",
-      "Bash(node \"C:\\\\Users\\\\Johan\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\critique-storage.mjs\" slug \"index.html\")"
-    ]
-  }
-}
