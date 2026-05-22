@@ -7,7 +7,7 @@
   <meta name="description" content="Clínica dermatológica especializada en tratamientos de piel, estética avanzada y cirugía dermatológica en San Salvador, El Salvador." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Karla:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -17,18 +17,16 @@
   ═══════════════════════════════════════════ -->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#inicio" class="nav__logo">
-        <span class="nav__logo-icon">✦</span>
-        Derma<strong>Skin</strong>
-      </a>
-      <nav class="nav__links" id="navLinks">
+      <a href="#inicio" class="nav__logo">Derma<em>Skin</em></a>
+      <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
       </nav>
       <a href="#contacto" class="btn btn--primary nav__cta">Agendar cita</a>
-      <button class="nav__toggle" id="navToggle" aria-label="Menú">
+      <button class="nav__toggle" id="navToggle"
+              aria-label="Menú" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -37,122 +35,155 @@
   <!-- ═══════════════════════════════════════════
        HERO
   ═══════════════════════════════════════════ -->
-  <section class="hero" id="inicio">
+  <section class="hero" id="inicio" aria-labelledby="hero-heading">
     <div class="container hero__inner">
-      <div class="hero__text">
-        <span class="hero__badge">Dermatología · Estética · Cirugía</span>
-        <h1 class="hero__title">Tu piel merece el mejor cuidado</h1>
-        <p class="hero__sub">Tratamientos dermatológicos de vanguardia en San Salvador. Más de 15 años cuidando la piel de nuestros pacientes con tecnología de última generación.</p>
+      <div class="hero__content">
+        <p class="hero__eyebrow">San Salvador · Dermatología certificada</p>
+        <h1 class="hero__title" id="hero-heading">
+          Tu piel <em>merece</em><br>el mejor cuidado
+        </h1>
+        <p class="hero__sub">
+          Tratamientos dermatológicos de vanguardia en El Salvador.
+          Más de 15 años cuidando la piel de nuestros pacientes con
+          tecnología de última generación.
+        </p>
         <div class="hero__actions">
           <a href="#contacto" class="btn btn--primary btn--lg">Agendar cita ahora</a>
           <a href="#servicios" class="btn btn--ghost btn--lg">Ver servicios</a>
         </div>
-        <div class="hero__stats">
-          <div class="hero__stat"><strong>+8,000</strong><span>pacientes atendidos</span></div>
-          <div class="hero__stat"><strong>15+</strong><span>años de experiencia</span></div>
-          <div class="hero__stat"><strong>98%</strong><span>satisfacción</span></div>
-        </div>
       </div>
-      <div class="hero__image-wrap">
+      <div class="hero__visual" aria-hidden="true">
         <img
           src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80"
-          alt="Dra. especialista en dermatología"
+          alt="Dra. Sofía Morales, especialista en dermatología en San Salvador"
           class="hero__image"
           loading="eager"
+          width="560" height="680"
         />
-        <div class="hero__badge-float hero__badge-float--1">
-          <span class="badge-icon">🏆</span>
-          <div><strong>Médico certificado</strong><small>Board Dermatología</small></div>
-        </div>
-        <div class="hero__badge-float hero__badge-float--2">
-          <span class="badge-icon">⭐</span>
-          <div><strong>4.9 / 5</strong><small>Google Reviews</small></div>
-        </div>
       </div>
     </div>
-    <div class="hero__wave">
-      <svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,40 C360,80 1080,0 1440,40 L1440,60 L0,60 Z" fill="#f7fafc"/></svg>
+    <div class="hero__proof" aria-label="Números de la clínica">
+      <div class="container">
+        <div class="hero__proof-inner">
+          <div class="hero__stat">
+            <strong>+8,000</strong>
+            <span>pacientes atendidos</span>
+          </div>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <strong>15+</strong>
+            <span>años de experiencia</span>
+          </div>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <strong>98%</strong>
+            <span>satisfacción</span>
+          </div>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <strong>4.9/5</strong>
+            <span>Google Reviews</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
        SERVICIOS
   ═══════════════════════════════════════════ -->
-  <section class="section" id="servicios">
+  <section class="section" id="servicios" aria-labelledby="servicios-heading">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Lo que ofrecemos</span>
-        <h2 class="section__title">Nuestros servicios</h2>
+        <p class="section__tag">Especialidades</p>
+        <h2 class="section__title" id="servicios-heading">Nuestros servicios</h2>
         <p class="section__desc">Diagnóstico y tratamiento especializado para cada tipo de piel, con tecnología médica de primer nivel.</p>
       </div>
-      <div class="services__grid">
-        <div class="service-card">
-          <div class="service-card__icon">🔬</div>
-          <h3>Diagnóstico dermatológico</h3>
-          <p>Evaluación completa de la piel, lunares y lesiones. Dermatoscopio digital de alta resolución para diagnóstico preciso.</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-        <div class="service-card service-card--featured">
-          <div class="service-card__icon">✨</div>
-          <h3>Tratamientos estéticos</h3>
-          <p>Botox, rellenos, peeling químico, microdermoabrasión y más. Resultados naturales con mínimo tiempo de recuperación.</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">⚕️</div>
-          <h3>Dermatología médica</h3>
-          <p>Tratamiento de acné, psoriasis, eczema, rosácea y enfermedades de la piel. Terapias personalizadas para cada caso.</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">💉</div>
-          <h3>Cirugía dermatológica</h3>
-          <p>Extirpación de lunares, quistes, lipomas y lesiones cutáneas bajo anestesia local. Procedimiento en consultorio.</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">☀️</div>
-          <h3>Tratamiento solar</h3>
-          <p>Manchas, melasma y daño por sol. Tratamientos con láser y activos específicos para uniformar el tono de la piel.</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">💆</div>
-          <h3>Cuidado del cabello</h3>
-          <p>Tratamiento de alopecia, caída del cabello y afecciones del cuero cabelludo. Incluye plasma rico en plaquetas (PRP).</p>
-          <a href="#contacto" class="service-card__link">Agendar →</a>
-        </div>
-      </div>
+      <ul class="services__list" role="list">
+        <li class="service-row service-row--featured reveal" style="--delay:0s">
+          <span class="service-row__num" aria-hidden="true">01</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Tratamientos estéticos</h3>
+            <p class="service-row__desc">Botox, rellenos, peeling químico, microdermoabrasión y más. Resultados naturales con mínimo tiempo de recuperación.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar tratamiento estético">Agendar →</a>
+        </li>
+        <li class="service-row reveal" style="--delay:0.06s">
+          <span class="service-row__num" aria-hidden="true">02</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Diagnóstico dermatológico</h3>
+            <p class="service-row__desc">Evaluación completa con dermatoscopio digital de alta resolución. Diagnóstico preciso de lunares, lesiones y afecciones cutáneas.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar diagnóstico">Agendar →</a>
+        </li>
+        <li class="service-row reveal" style="--delay:0.12s">
+          <span class="service-row__num" aria-hidden="true">03</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Dermatología médica</h3>
+            <p class="service-row__desc">Acné, psoriasis, eczema, rosácea y enfermedades cutáneas. Terapias personalizadas y tratamiento de fondo con evidencia científica.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar consulta médica">Agendar →</a>
+        </li>
+        <li class="service-row reveal" style="--delay:0.18s">
+          <span class="service-row__num" aria-hidden="true">04</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Cirugía dermatológica</h3>
+            <p class="service-row__desc">Extirpación de lunares, quistes y lipomas bajo anestesia local. Procedimiento en consultorio, mismo día, mínimas molestias.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar cirugía">Agendar →</a>
+        </li>
+        <li class="service-row reveal" style="--delay:0.24s">
+          <span class="service-row__num" aria-hidden="true">05</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Tratamiento solar y manchas</h3>
+            <p class="service-row__desc">Melasma, manchas por sol y daño actínico. Tratamientos con láser y activos específicos para uniformar el tono de piel.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar tratamiento solar">Agendar →</a>
+        </li>
+        <li class="service-row reveal" style="--delay:0.30s">
+          <span class="service-row__num" aria-hidden="true">06</span>
+          <div class="service-row__body">
+            <h3 class="service-row__title">Cuidado del cabello</h3>
+            <p class="service-row__desc">Alopecia, caída del cabello y afecciones del cuero cabelludo. Incluye plasma rico en plaquetas (PRP) y tratamiento hormonal si aplica.</p>
+          </div>
+          <a href="#contacto" class="service-row__cta" aria-label="Agendar consulta de cabello">Agendar →</a>
+        </li>
+      </ul>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════════
        NOSOTROS
   ═══════════════════════════════════════════ -->
-  <section class="section section--alt" id="nosotros">
+  <section class="section section--alt" id="nosotros" aria-labelledby="nosotros-heading">
     <div class="container about__inner">
-      <div class="about__image-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80"
-          alt="Consultorio DermaSkin"
-          class="about__image"
-          loading="lazy"
-        />
-        <div class="about__exp-card">
-          <strong>15</strong>
-          <span>años de experiencia</span>
-        </div>
+      <div class="about__visual reveal">
+        <figure class="about__figure">
+          <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=700&q=80"
+            alt="Consultorio DermaSkin en San Salvador"
+            class="about__image"
+            loading="lazy"
+            width="600" height="700"
+          />
+          <figcaption class="about__caption">
+            <strong>15</strong>
+            <span>años de experiencia</span>
+          </figcaption>
+        </figure>
       </div>
-      <div class="about__text">
-        <span class="section__tag">Sobre nosotros</span>
-        <h2 class="section__title">Dra. Sofía Morales<br/><em>Dermatóloga certificada</em></h2>
+      <div class="about__text reveal">
+        <p class="section__tag">Sobre nosotros</p>
+        <h2 class="section__title" id="nosotros-heading">
+          Dra. Sofía Morales<br><em>Dermatóloga certificada</em>
+        </h2>
         <p>Especialista en dermatología médica y estética con formación en la Universidad de El Salvador y posgrado en la Universidad Autónoma de México. Miembro activo de la Sociedad Latinoamericana de Dermatología.</p>
         <p>En DermaSkin nos enfocamos en resultados reales y duraderos, con un enfoque integral que combina medicina basada en evidencia con los últimos avances en estética dermatológica.</p>
-        <ul class="about__list">
-          <li>✓ Especialidad en Dermatología — Universidad de El Salvador</li>
-          <li>✓ Posgrado en Dermatología Estética — UNAM México</li>
-          <li>✓ Miembro Sociedad Latinoamericana de Dermatología</li>
-          <li>✓ Certificación en Láser y Tecnologías Avanzadas</li>
+        <ul class="about__credentials">
+          <li>Especialidad en Dermatología — Universidad de El Salvador</li>
+          <li>Posgrado en Dermatología Estética — UNAM México</li>
+          <li>Miembro Sociedad Latinoamericana de Dermatología</li>
+          <li>Certificación en Láser y Tecnologías Avanzadas</li>
         </ul>
         <a href="#contacto" class="btn btn--primary">Agendar con la Dra. Morales</a>
       </div>
@@ -162,36 +193,59 @@
   <!-- ═══════════════════════════════════════════
        TESTIMONIOS
   ═══════════════════════════════════════════ -->
-  <section class="section" id="testimonios">
+  <section class="section" id="testimonios" aria-labelledby="testimonios-heading">
     <div class="container">
       <div class="section__header">
-        <span class="section__tag">Lo que dicen nuestros pacientes</span>
-        <h2 class="section__title">Resultados que hablan</h2>
+        <p class="section__tag">Pacientes</p>
+        <h2 class="section__title" id="testimonios-heading">Resultados que hablan</h2>
       </div>
-      <div class="testimonials__grid">
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <p>"Llevaba años batallando con el acné y ningún tratamiento me funcionaba. La Dra. Morales fue la primera que me explicó exactamente por qué y me dio un plan que de verdad funcionó. En tres meses vi resultados increíbles."</p>
-          <div class="testimonial-card__author">
-            <img src="https://i.pravatar.cc/48?img=47" alt="Paciente" />
-            <div><strong>Andrea Gutiérrez</strong><small>Paciente desde 2023</small></div>
-          </div>
-        </div>
-        <div class="testimonial-card testimonial-card--featured">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <p>"El consultorio es muy limpio y moderno, el personal es amable y la Dra. es muy profesional. Me hicieron la extirpación de un lunar y ni siquiera sentí nada. Totalmente recomendada."</p>
-          <div class="testimonial-card__author">
-            <img src="https://i.pravatar.cc/48?img=32" alt="Paciente" />
-            <div><strong>Carlos Mejía</strong><small>Paciente desde 2022</small></div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-card__stars">★★★★★</div>
-          <p>"Vine por tratamiento de manchas y quedé muy satisfecha con los resultados. La Dra. es muy honesta, no te ofrece lo que no necesitas. Ya recomendé la clínica a toda mi familia."</p>
-          <div class="testimonial-card__author">
-            <img src="https://i.pravatar.cc/48?img=25" alt="Paciente" />
-            <div><strong>María Fernanda López</strong><small>Paciente desde 2024</small></div>
-          </div>
+      <div class="testimonials__layout">
+        <blockquote class="testimonial testimonial--primary reveal">
+          <p class="testimonial__text">
+            "Llevaba años batallando con el acné y ningún tratamiento me funcionaba.
+            La Dra. Morales fue la primera que me explicó exactamente por qué y me
+            dio un plan que de verdad funcionó. En tres meses vi resultados increíbles."
+          </p>
+          <footer class="testimonial__author">
+            <img src="https://i.pravatar.cc/56?img=47" alt=""
+                 width="56" height="56" loading="lazy" aria-hidden="true" />
+            <div>
+              <cite class="testimonial__name">Andrea Gutiérrez</cite>
+              <span class="testimonial__since">Paciente desde 2023</span>
+            </div>
+          </footer>
+        </blockquote>
+        <div class="testimonials__secondary">
+          <blockquote class="testimonial reveal">
+            <p class="testimonial__text">
+              "El consultorio es muy limpio y moderno. Me hicieron la extirpación de
+              un lunar y ni siquiera sentí nada. La Dra. es muy profesional.
+              Totalmente recomendada."
+            </p>
+            <footer class="testimonial__author">
+              <img src="https://i.pravatar.cc/48?img=32" alt=""
+                   width="48" height="48" loading="lazy" aria-hidden="true" />
+              <div>
+                <cite class="testimonial__name">Carlos Mejía</cite>
+                <span class="testimonial__since">Paciente desde 2022</span>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="testimonial reveal">
+            <p class="testimonial__text">
+              "Vine por tratamiento de manchas y quedé muy satisfecha. La Dra. es
+              muy honesta, no te ofrece lo que no necesitas. Ya recomendé la clínica
+              a toda mi familia."
+            </p>
+            <footer class="testimonial__author">
+              <img src="https://i.pravatar.cc/48?img=25" alt=""
+                   width="48" height="48" loading="lazy" aria-hidden="true" />
+              <div>
+                <cite class="testimonial__name">María Fernanda López</cite>
+                <span class="testimonial__since">Paciente desde 2024</span>
+              </div>
+            </footer>
+          </blockquote>
         </div>
       </div>
     </div>
@@ -200,64 +254,55 @@
   <!-- ═══════════════════════════════════════════
        CONTACTO
   ═══════════════════════════════════════════ -->
-  <section class="section section--alt" id="contacto">
+  <section class="section section--alt" id="contacto" aria-labelledby="contacto-heading">
     <div class="container contact__inner">
-      <div class="contact__info">
-        <span class="section__tag">Contáctanos</span>
-        <h2 class="section__title">Agenda tu cita</h2>
-        <p>Estamos aquí para atenderte. Llámanos, escríbenos por WhatsApp o llena el formulario y te contactaremos a la brevedad.</p>
-        <div class="contact__details">
+      <div class="contact__info reveal">
+        <p class="section__tag">Contáctanos</p>
+        <h2 class="section__title" id="contacto-heading">Agenda tu cita</h2>
+        <p class="contact__lead">Estamos aquí para atenderte. Llámanos, escríbenos por WhatsApp o llena el formulario y te contactaremos a la brevedad.</p>
+        <dl class="contact__details">
           <div class="contact__item">
-            <span class="contact__icon">📍</span>
-            <div>
-              <strong>Dirección</strong>
-              <span>Col. Escalón, Calle La Reforma 215, San Salvador</span>
-            </div>
+            <dt>Dirección</dt>
+            <dd>Col. Escalón, Calle La Reforma 215<br>San Salvador, El Salvador</dd>
           </div>
           <div class="contact__item">
-            <span class="contact__icon">📞</span>
-            <div>
-              <strong>Teléfono</strong>
-              <span>2264-0000 · 7900-0000 (WhatsApp)</span>
-            </div>
+            <dt>Teléfono</dt>
+            <dd>2264-0000 · <a href="tel:+50379000000">7900-0000</a> (WhatsApp)</dd>
           </div>
           <div class="contact__item">
-            <span class="contact__icon">🕐</span>
-            <div>
-              <strong>Horarios</strong>
-              <span>Lunes – Viernes 8:00 AM – 6:00 PM<br/>Sábados 8:00 AM – 12:00 PM</span>
-            </div>
+            <dt>Horarios</dt>
+            <dd>Lunes – Viernes: 8:00 AM – 6:00 PM<br>Sábados: 8:00 AM – 12:00 PM</dd>
           </div>
           <div class="contact__item">
-            <span class="contact__icon">✉️</span>
-            <div>
-              <strong>Email</strong>
-              <span>citas@dermaskin.com.sv</span>
-            </div>
+            <dt>Correo</dt>
+            <dd><a href="mailto:citas@dermaskin.com.sv">citas@dermaskin.com.sv</a></dd>
           </div>
-        </div>
+        </dl>
       </div>
-      <form class="contact__form" id="contactForm" novalidate>
+      <form class="contact__form reveal" id="contactForm" novalidate>
         <div class="form-group">
           <label for="nombre">Nombre completo</label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+          <input type="text" id="nombre" name="nombre"
+                 placeholder="Tu nombre" required autocomplete="name" />
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="telefono">Teléfono / WhatsApp</label>
-            <input type="tel" id="telefono" name="telefono" placeholder="7000-0000" required />
+            <input type="tel" id="telefono" name="telefono"
+                   placeholder="7000-0000" required autocomplete="tel" />
           </div>
           <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" />
+            <input type="email" id="email" name="email"
+                   placeholder="correo@ejemplo.com" autocomplete="email" />
           </div>
         </div>
         <div class="form-group">
           <label for="servicio">Servicio de interés</label>
           <select id="servicio" name="servicio">
             <option value="">Selecciona un servicio</option>
-            <option>Diagnóstico dermatológico</option>
             <option>Tratamientos estéticos</option>
+            <option>Diagnóstico dermatológico</option>
             <option>Dermatología médica</option>
             <option>Cirugía dermatológica</option>
             <option>Tratamiento solar / manchas</option>
@@ -266,11 +311,16 @@
         </div>
         <div class="form-group">
           <label for="mensaje">Mensaje (opcional)</label>
-          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos brevemente tu caso o pregunta..."></textarea>
+          <textarea id="mensaje" name="mensaje" rows="3"
+                    placeholder="Cuéntanos brevemente tu caso o pregunta..."></textarea>
         </div>
-        <button type="submit" class="btn btn--primary btn--full">Enviar solicitud de cita</button>
-        <p class="form__note">Te contactaremos en menos de 24 horas. Tus datos son confidenciales.</p>
-        <div class="form__success" id="formSuccess">✓ ¡Mensaje enviado! Te contactaremos pronto.</div>
+        <button type="submit" class="btn btn--primary btn--full">
+          Enviar solicitud de cita
+        </button>
+        <p class="form__note">Te contactaremos en menos de 24 horas. Tus datos son completamente confidenciales.</p>
+        <div class="form__success" id="formSuccess" role="alert" aria-live="polite">
+          Gracias por escribirnos. Nos pondremos en contacto pronto para confirmar tu cita.
+        </div>
       </form>
     </div>
   </section>
@@ -281,34 +331,33 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <a href="#inicio" class="nav__logo">
-          <span class="nav__logo-icon">✦</span>
-          Derma<strong>Skin</strong>
-        </a>
+        <a href="#inicio" class="nav__logo nav__logo--light">Derma<em>Skin</em></a>
         <p>Cuidando tu piel con ciencia y dedicación desde 2010.</p>
       </div>
       <div class="footer__links">
-        <h4>Servicios</h4>
+        <h3>Servicios</h3>
         <a href="#servicios">Diagnóstico dermatológico</a>
         <a href="#servicios">Tratamientos estéticos</a>
         <a href="#servicios">Dermatología médica</a>
         <a href="#servicios">Cirugía dermatológica</a>
       </div>
       <div class="footer__links">
-        <h4>Clínica</h4>
+        <h3>Clínica</h3>
         <a href="#nosotros">Sobre nosotros</a>
         <a href="#testimonios">Testimonios</a>
         <a href="#contacto">Contacto</a>
         <a href="#contacto">Agendar cita</a>
       </div>
       <div class="footer__contact">
-        <h4>Encuéntranos</h4>
-        <p>Col. Escalón, Calle La Reforma 215<br/>San Salvador, El Salvador</p>
-        <p>📞 2264-0000<br/>💬 7900-0000 WhatsApp</p>
+        <h3>Encuéntranos</h3>
+        <address>Col. Escalón, Calle La Reforma 215<br>San Salvador, El Salvador</address>
+        <p>2264-0000<br>7900-0000 WhatsApp</p>
       </div>
     </div>
     <div class="footer__bottom">
-      <p>© 2025 DermaSkin Clínica Dermatológica — Sitio desarrollado por <a href="https://johanlopez.netlify.app" target="_blank">Johan López</a></p>
+      <p>© 2025 DermaSkin Clínica Dermatológica — Desarrollado por
+        <a href="https://johanlopez.netlify.app" target="_blank" rel="noopener noreferrer">Johan López</a>
+      </p>
     </div>
   </footer>
 

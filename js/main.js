@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   DERMASKIN — main.js
+   DERMASKIN — main.js v2
    ═══════════════════════════════════════════════════════ */
 
 // ─── Nav: sombra al hacer scroll ────────────────────────
@@ -14,32 +14,44 @@ const navLinks  = document.getElementById('navLinks');
 
 navToggle.addEventListener('click', () => {
   const isOpen = navLinks.classList.toggle('open');
-  navToggle.setAttribute('aria-expanded', isOpen);
+  navToggle.setAttribute('aria-expanded', String(isOpen));
 });
 
-// Cerrar menú al hacer clic en un enlace
 navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
 });
 
-// ─── Nav: marcar enlace activo según sección visible ────
-const sections = document.querySelectorAll('section[id]');
+// ─── Nav: enlace activo según sección visible ────────────
+const sections   = document.querySelectorAll('section[id]');
 const navAnchors = document.querySelectorAll('.nav__links a');
 
-const observer = new IntersectionObserver(entries => {
+const sectionObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.getAttribute('id');
-      navAnchors.forEach(a => {
-        a.style.color = a.getAttribute('href') === `#${id}`
-          ? 'var(--primary)'
-          : '';
-      });
-    }
+    if (!entry.isIntersecting) return;
+    const id = entry.target.getAttribute('id');
+    navAnchors.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+    });
   });
 }, { rootMargin: '-50% 0px -50% 0px' });
 
-sections.forEach(s => observer.observe(s));
+sections.forEach(s => sectionObserver.observe(s));
+
+// ─── Reveal on scroll ────────────────────────────────────
+const revealEls = document.querySelectorAll('.reveal');
+
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('is-visible');
+    revealObserver.unobserve(entry.target);
+  });
+}, { threshold: 0.08 });
+
+revealEls.forEach(el => revealObserver.observe(el));
 
 // ─── Formulario de contacto ──────────────────────────────
 const form        = document.getElementById('contactForm');
@@ -49,37 +61,16 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   const btn = form.querySelector('button[type="submit"]');
+  const original = btn.textContent;
   btn.textContent = 'Enviando...';
   btn.disabled = true;
 
-  // Simula envío (aquí conectarías Netlify Forms o EmailJS)
   setTimeout(() => {
     form.reset();
-    btn.textContent = 'Enviar solicitud de cita';
+    btn.textContent = original;
     btn.disabled = false;
     formSuccess.classList.add('visible');
-    setTimeout(() => formSuccess.classList.remove('visible'), 5000);
+    formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    setTimeout(() => formSuccess.classList.remove('visible'), 6000);
   }, 1200);
-});
-
-// ─── Animación de entrada para las cards ────────────────
-const animatedEls = document.querySelectorAll(
-  '.service-card, .testimonial-card, .contact__item'
-);
-
-const fadeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity  = '1';
-      entry.target.style.transform = 'translateY(0)';
-      fadeObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-animatedEls.forEach(el => {
-  el.style.opacity   = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity .4s ease, transform .4s ease';
-  fadeObserver.observe(el);
 });
