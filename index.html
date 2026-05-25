@@ -45,6 +45,9 @@
        HERO
   ═══════════════════════════════════════════ -->
   <section class="hero" id="inicio" aria-labelledby="hero-heading">
+    <div class="hero__blob hero__blob--1" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--2" aria-hidden="true"></div>
+    <div class="hero__blob hero__blob--3" aria-hidden="true"></div>
     <div class="container hero__inner">
       <div class="hero__content">
         <h1 class="hero__title" id="hero-heading">
@@ -61,14 +64,30 @@
         </div>
       </div>
       <div class="hero__visual" aria-hidden="true">
-        <img
-          src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80"
-          alt="Dra. Sofía Morales, especialista en dermatología en San Salvador"
-          class="hero__image"
-          loading="eager"
-          fetchpriority="high"
-          width="560" height="680"
-        />
+        <div class="hero__image-wrap">
+          <div class="hero__ring hero__ring--outer"></div>
+          <div class="hero__ring hero__ring--inner"></div>
+          <img
+            src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=700&q=80"
+            alt="Dra. Sofía Morales, especialista en dermatología en San Salvador"
+            class="hero__image"
+            loading="eager"
+            fetchpriority="high"
+            width="560" height="680"
+          />
+          <div class="hero__badge hero__badge--patients">
+            <strong>+8,000</strong>
+            <span>pacientes atendidos</span>
+          </div>
+          <div class="hero__badge hero__badge--rating">
+            <strong>★ 4.9 / 5</strong>
+            <span>Google Reviews</span>
+          </div>
+          <div class="hero__badge hero__badge--years">
+            <strong>15 años</strong>
+            <span>de experiencia</span>
+          </div>
+        </div>
       </div>
     </div>
     <div class="hero__proof" aria-label="Números de la clínica">
